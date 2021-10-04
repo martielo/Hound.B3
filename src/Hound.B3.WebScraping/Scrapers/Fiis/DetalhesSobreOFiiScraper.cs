@@ -1,9 +1,8 @@
 using System;
 using Hound.B3.Core;
 using Hound.B3.WebScraping.Abstractions;
-using Hound.B3.WebScraping.Extensions;
+using Hound.B3.WebScraping.Selenium.Extensions;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
 namespace Hound.B3.WebScraping.Scrapers
 {

@@ -1,7 +1,7 @@
 using System;
 using OpenQA.Selenium;
 
-namespace Hound.B3.WebScraping.Extensions
+namespace Hound.B3.WebScraping.Selenium.Extensions
 {
     internal static class SeleniumWebDriverExtensions
     {

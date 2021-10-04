@@ -62,7 +62,7 @@ namespace Hound.B3.WebScraping.Selenium
         {
             int retries = 0;
 
-            dynamic @dynamic = string.Empty;
+            dynamic @dynamic = default;
 
             while (retries < MaxRetries)
             {

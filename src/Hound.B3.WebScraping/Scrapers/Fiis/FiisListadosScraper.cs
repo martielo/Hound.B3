@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using Hound.B3.Core;
 using Hound.B3.WebScraping.Abstractions;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
 namespace Hound.B3.WebScraping.Scrapers
