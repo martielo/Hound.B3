@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 
 namespace Hound.B3.WebScraping.Selenium
 {
-    internal class HoundB3WebDriver : IWebDriver
+    internal class HoundB3WebDriver : IWebDriver, IJavaScriptExecutor
     {
         private readonly IWebDriver _webDriver;
 
@@ -31,6 +31,10 @@ namespace Hound.B3.WebScraping.Selenium
         public void Close() => _webDriver.Close();
 
         public void Dispose() => _webDriver.Dispose();
+
+        public object ExecuteAsyncScript(string script, params object[] args) => ((IJavaScriptExecutor)_webDriver).ExecuteAsyncScript(script, args);
+
+        public object ExecuteScript(string script, params object[] args) => ((IJavaScriptExecutor)_webDriver).ExecuteScript(script, args);
 
         public IWebElement FindElement(By by)
         {

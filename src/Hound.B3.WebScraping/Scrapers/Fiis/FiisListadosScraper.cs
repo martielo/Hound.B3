@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Hound.B3.Core;
 using Hound.B3.WebScraping.Abstractions;
@@ -12,7 +13,7 @@ namespace Hound.B3.WebScraping.Scrapers
         {
             var fiis = new List<Fii>();
 
-            using (var driver = NewHeadlessChromeDriverInstance())
+            using (var driver = NewHeadlessChromeDriverInstance(TimeSpan.FromSeconds(5)))
             {
                 driver.Navigate().GoToUrl(Constants.B3ListadosFiiUrl);
 

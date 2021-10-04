@@ -6,6 +6,8 @@ namespace Hound.B3.WebScraping.Scrapers
 {
     public abstract class BaseB3FiiScraper : BaseB3Scraper
     {
+        private int ContadorElementoPaginacao { get; set; } = 4;
+
         protected IWebDriver NavegarParaPaginaSobreOFundo(IWebDriver driver, Fii fii)
         {
             if (string.IsNullOrEmpty(fii.IdB3))
@@ -26,8 +28,10 @@ namespace Hound.B3.WebScraping.Scrapers
             {
                 quantidadeItensCategoria = quantidadeItensCategoria - maximoItensPorPagina;
 
-                var proximaPaginaElement = driver.FindElement(By.XPath("//*[@id=\"listing_pagination\"]/pagination-template/ul/li[5]/a"));
+                var proximaPaginaElement = driver.FindElement(By.XPath($"//*[@id=\"listing_pagination\"]/pagination-template/ul/li[{ContadorElementoPaginacao}]/a"));
                 proximaPaginaElement.Click();
+
+                ContadorElementoPaginacao++;
 
                 index = 1;
             }

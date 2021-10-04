@@ -10,7 +10,7 @@ namespace Hound.B3.WebScraping.Scrapers
     {
         public Fii ObterDetalhesSobreOFii(Fii fii)
         {
-            using (var driver = NewHeadlessChromeDriverInstance())
+            using (var driver = NewHeadlessChromeDriverInstance(TimeSpan.FromSeconds(5)))
             {
                 NavegarParaPaginaSobreOFundo(driver, fii);
 

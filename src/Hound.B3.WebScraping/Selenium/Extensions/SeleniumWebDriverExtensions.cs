@@ -1,5 +1,6 @@
 using System;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace Hound.B3.WebScraping.Selenium.Extensions
 {
@@ -10,6 +11,20 @@ namespace Hound.B3.WebScraping.Selenium.Extensions
             try
             {
                 webDriver.FindElement(by);
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool TrySelectByText(this SelectElement selectElement, string text, bool partialMatch = false)
+        {
+            try
+            {
+                selectElement.SelectByText(text, partialMatch: partialMatch);
             }
             catch (NoSuchElementException)
             {

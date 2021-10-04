@@ -4,6 +4,7 @@ using Hound.B3.Core;
 using Hound.B3.WebScraping.Abstractions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using Hound.B3.WebScraping.Selenium.Extensions;
 
 namespace Hound.B3.WebScraping.Scrapers
 {
@@ -20,7 +21,10 @@ namespace Hound.B3.WebScraping.Scrapers
                 driver.Navigate().GoToUrl(new Uri(Constants.B3ListadosBaseUrl, $"fundsPage/main/{fii.IdB3}/{fii.Nome}/7/information"));
 
                 var selectCategoryElement = new SelectElement(driver.FindElement(By.Id("selectCategory")));
-                selectCategoryElement.SelectByText("Relatórios", partialMatch: true);
+
+                bool temRelatorios = selectCategoryElement.TrySelectByText("Relatórios", partialMatch: true);
+
+                if (!temRelatorios) return fii;
 
                 string textoCategoria = selectCategoryElement.SelectedOption.Text;
                 int quantidadeItensCategoria = int.Parse(textoCategoria.Split(" ")[1].Replace("(", string.Empty).Replace(")", string.Empty));

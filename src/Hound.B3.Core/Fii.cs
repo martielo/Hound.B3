@@ -22,7 +22,6 @@ namespace Hound.B3.Core
             Nome = nome;
             NomeDoPregao = nomeDoPregao;
             CodigoNegociacao = $"{Nome}11";
-            IdB3 = "36642293000158"; //FHI
 
             InformacoesRelevantes = new List<InformacaoRelevante>();
         }
@@ -37,6 +36,12 @@ namespace Hound.B3.Core
         public Fii AdicionarInformacaoRelevante(InformacaoRelevante informacaoRelevante)
         {
             InformacoesRelevantes.Add(informacaoRelevante);
+            return this;
+        }
+
+        public Fii AdicionarIdB3(string idB3)
+        {
+            IdB3 = idB3;
             return this;
         }
     }
